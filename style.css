@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #060609;
+    color: #00ff9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.profile-card {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    background: rgba(13, 13, 18, 0.9);
+    border: 1px solid #00ff9d;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 255, 157, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.banner {
+    height: 130px;
+    background: linear-gradient(135deg, #15002a, #001730);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #00ff9d;
+}
+
+.glitch-text {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 2px 2px #ff0055, -2px -2px #00ffff;
+}
+
+.info-block {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border: 2px solid #00ff9d;
+    border-radius: 50%;
+    margin: 0 auto 20px auto; /* Убрали минус, сделали ровные отступы */
+    display: block;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+}
+
+h1 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.status {
+    font-size: 13px;
+    color: #888899;
+    margin-bottom: 15px;
+}
+
+.status span {
+    color: #00ff9d;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.bio {
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-main, .btn-sub {
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-main {
+    background: #00ff9d;
+    color: #060609;
+    border: 1px solid #00ff9d;
+}
+
+.btn-main:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px #ffffff;
+}
+
+.btn-sub {
+    background: transparent;
+    color: #00ff9d;
+    border: 1px solid #00ff9d;
+}
+
+.btn-sub:hover {
+    background: rgba(0, 255, 157, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+/* Окно проектов (Модалка) */
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.modal-bg.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background: #0d0d12;
+    border: 1px solid #00ff9d;
+    width: 450px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #ff0055;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Кликабельные карточки */
+.card-item-link {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    padding: 12px;
+    border-radius: 5px;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.card-item:hover {
+    background: rgba(0, 255, 157, 0.05);
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+}
+
+.card-item h3 {
+    font-size: 15px;
+    color: #00ff9d;
+    margin-bottom: 4px;
+}
+
+.card-item p {
+    font-size: 13px;
+    color: #a0a0aa;
+}
+
+/* СТИЛИ ХАКЕРСКОГО ТЕРМИНАЛА */
+.terminal-container {
+    background: #050507;
+    border: 1px solid #00ff9d;
+    border-radius: 5px;
+    margin-top: 15px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.terminal-header {
+    background: rgba(0, 255, 157, 0.1);
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.terminal-body {
+    padding: 10px;
+    font-size: 13px;
+    color: #00ff9d;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#terminalOutput {
+    overflow-y: auto;
+    white-space: pre-wrap;
+    max-height: 80px;
+    color: #ffffff;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.prompt {
+    color: #00ff9d;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+#terminalInput {
+    background: transparent;
+    border: none;
+    color: #00ff9d;
+    outline: none;
+    flex: 1;
+    font-family: monospace;
+    font-size: 13px;
+}
