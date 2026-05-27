@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cyber.security.ru</title>
+    <!-- Мета-теги для поиска в Google -->
+    <meta name="description" content="Официальный портал cyber.security.ru Изучение кибербезопасности, пентеста и защиты данных.">
+    <meta name="keywords" content="cyber.security, кибербезопасность, хакерство, пентест, защита информации, Kali Linux">
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-site-verification" content="ycJ7CPSKTV4flPWv2A4A6RAPyd_8FLlPOxPhziWfeg8" />
+</head>
+<body>
+
+    <!-- Холст для фона с частицами -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Главная карточка -->
+    <div class="profile-card">
+        <!-- Поменяли имя на баннере -->
+        <div class="banner">
+            <div class="glitch-text">CYBER.SECURITY.RU</div>
+        </div>
+        
+        <div class="info-block">
+            <!-- Реальная аватарка -->
+            <img src="avatar.jpg" alt="Аватар" class="profile-avatar">
+            <h1>Adam_Net</h1>
+            <p class="status"><span>●</span> Online | Спец по ИБ</p>
+            <p class="bio">Добро пожаловать на платформу изучения информационной безопасности. Разрабатываю скрипты и тестирую системы на уязвимости.</p>
+            
+            <div class="action-buttons">
+                <button class="btn-main" id="btnProjects">База Знаний</button>
+                <!-- ТВОЙ ТЕЛЕГРАМ: Замени слово ТВОЙ_НИК_В_ТЕЛЕГРАМЕ на свой ник ниже -->
+                <a href="https://t.me/Guliev017" target="_blank" class="btn-sub">Связь</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно (Новые вкладки кибербезопасности) -->
+    <div class="modal-bg" id="modalWindow">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>Направления ИБ</h2>
+                <button class="close-modal" id="btnClose">&times;</button>
+            </div>
+            
+            <!-- Прокручиваемый список новых вкладок -->
+            <div class="modal-list">
+                
+                <!-- Вкладка 1: Пентест -->
+                <div class="card-item">
+                    <h3>🎯 Penetration Testing (Пентест)</h3>
+                    <p>Поиск брешей в защите сетей и веб-сайтов. Изучение утилит Nmap, Burp Suite, Metasploit Framework.</p>
+                </div>
+
+                <!-- Вкладка 2: OSINT -->
+                <div class="card-item">
+                    <h3>🔍 OSINT & Разведка</h3>
+                    <p>Сбор информации из открытых источников. Поиск уязвимых серверов и анализ утечек данных.</p>
+                </div>
+
+                <!-- Вкладка 3: Защита систем -->
+                <div class="card-item">
+                    <h3>🛡️ Reverse Engineering & Defend</h3>
+                    <p>Анализ кода, настройка брандмауэров, защита Android/Windows от вредоносных полезных нагрузок (payloads).</p>
+                </div>
+
+            </div>
+
+            <!-- Интерактивный хакерский терминал -->
+            <div class="terminal-container">
+                <div class="terminal-header">console@cyber.security.ru:~$</div>
+                <div class="terminal-body">
+                    <div id="terminalOutput">Система безопасности активна. Введите команду...</div>
+                    <div class="input-line">
+                        <span class="prompt">&gt;</span>
+                        <input type="text" id="terminalInput" placeholder="Команды: help, status, clear..." autofocus>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
